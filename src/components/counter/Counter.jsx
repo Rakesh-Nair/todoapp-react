@@ -5,6 +5,10 @@ export default function Counter() {
     setCount(count + 1);
   }
 
+  function decrementCounterFunction() {
+    setCount(count - 1);
+  }
+
   const [count, setCount] = useState(0);
   return (
     <div className="Counter">
@@ -12,6 +16,9 @@ export default function Counter() {
       <div>
         <button className="counterButton" onClick={incrementCounterFunction}>
           +1
+        </button>
+        <button className="counterButton" onClick={decrementCounterFunction}>
+          -1
         </button>
       </div>
     </div>
