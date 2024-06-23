@@ -3,3 +3,9 @@ export default function FirstComponent(){
       <div className='firstComponent'>My First Component</div>
     );
   }
+
+  export function FifthComponent(){
+    return (
+      <div className='fifthComponent'>My Fifth Component</div>
+    );
+  }
