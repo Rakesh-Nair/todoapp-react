@@ -1,21 +1,14 @@
+import { useState } from "react";
 import "./Counter.css";
 export default function Counter() {
   function incrementCounterFunction() {
-    console.log("Increment Clicked");
+    setCount(count + 1);
   }
 
-  //   const buttonStyle = {
-  //     fontSize:"15px",
-  //     backgroundColor:"green",
-  //     width:"100px",
-  //     margin:"10px",
-  //     color:"white",
-  //     padding:"15px",
-  //     borderRadius:"30px˙"
-  //   };
+  const [count, setCount] = useState(0);
   return (
     <div className="Counter">
-      <span className="count">0</span>
+      <span className="count">{count}</span>
       <div>
         <button className="counterButton" onClick={incrementCounterFunction}>
           +1
