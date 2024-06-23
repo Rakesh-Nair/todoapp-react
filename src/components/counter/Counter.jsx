@@ -3,28 +3,52 @@ import { PropTypes } from "prop-types";
 import "./Counter.css";
 
 export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  function incrementCount(by) {
+    setCount(count + by);
+  }
+
+  function decrementCount(by) {
+    setCount(count - by);
+  }
+
   return (
     <div>
-      <CounterButton by={1} />
-      <CounterButton by={2} />
-      <CounterButton by={5} />
+      <span className="parentCount">{count}</span>
+      <CounterButton
+        by={1}
+        incrementCount={incrementCount}
+        decrementCount={decrementCount}
+      />
+      <CounterButton
+        by={2}
+        incrementCount={incrementCount}
+        decrementCount={decrementCount}
+      />
+      <CounterButton
+        by={5}
+        incrementCount={incrementCount}
+        decrementCount={decrementCount}
+      />
     </div>
   );
 }
 
-function CounterButton({ by }) {
+function CounterButton({ by, incrementCount, decrementCount }) {
   function incrementCounterFunction() {
     setCount(count + by);
+    incrementCount(by);
   }
 
   function decrementCounterFunction() {
     setCount(count - by);
+    decrementCount(by);
   }
 
   const [count, setCount] = useState(0);
   return (
     <div className="Counter">
-      <span className="count">{count}</span>
       <div>
         <button className="counterButton" onClick={incrementCounterFunction}>
           +{by}

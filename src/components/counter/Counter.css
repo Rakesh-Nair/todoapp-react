@@ -7,11 +7,17 @@
     padding: 15px;
     border-radius: 30px; 
     border-color: black;
-    border-width: 5pxß;  
+    border-width: 5px;  
 }
 
 
 .count{
+    font-size: 50px;
+    padding: 20px;
+}
+
+.parentCount{
     font-size: 150px;
-    padding: 20pxß;
+    padding: 20px;
+    color: red;
 }
