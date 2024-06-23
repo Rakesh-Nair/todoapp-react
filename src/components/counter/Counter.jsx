@@ -1,7 +1,18 @@
 import { useState } from "react";
 import { PropTypes } from "prop-types";
 import "./Counter.css";
-export default function Counter({ by }) {
+
+export default function Counter() {
+  return (
+    <div>
+      <CounterButton by={1} />
+      <CounterButton by={2} />
+      <CounterButton by={5} />
+    </div>
+  );
+}
+
+function CounterButton({ by }) {
   function incrementCounterFunction() {
     setCount(count + by);
   }
@@ -26,10 +37,10 @@ export default function Counter({ by }) {
   );
 }
 
-Counter.propTypes = {
+CounterButton.propTypes = {
   by: PropTypes.number,
 };
 
-Counter.defaultProps = {
+CounterButton.defaultProps = {
   by: 1,
 };
