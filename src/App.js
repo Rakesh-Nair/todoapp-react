@@ -1,5 +1,8 @@
-import { Component } from 'react';
 import './App.css';
+import FirstComponent from './components/learning-examples/FirstComponent';
+import SecondComponent from './components/learning-examples/SecondComponent';
+import ThirdComponent from './components/learning-examples/ThirdComponent';
+import FourthComponent from './components/learning-examples/FourthComponent';
 
 function App() {
   return (
@@ -10,30 +13,6 @@ function App() {
       <FourthComponent/>
     </div>
   );
-}
-
-function FirstComponent(){
-  return (
-    <div className='firstComponent'>My First Component</div>
-  );
-}
-
-function SecondComponent(){
-  return (
-    <div className='secondComponent'>My Second Component</div>
-  );
-}
-
-class ThirdComponent extends Component{
-  render(){
-    return <div className='thirdComponent'>My Third Component</div>
-  }
-}
-
-class FourthComponent extends Component{
-  render(){
-    return <div className='fourthComponent'>My Fourth Component</div>
-  }
 }
 
 export default App;
