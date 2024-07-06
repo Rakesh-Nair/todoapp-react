@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { PropTypes } from "prop-types";
 import "./Counter.css";
+import { useState } from "react";
+import CounterButton from "./CounterButton";
 
 export default function Counter() {
   const [count, setCount] = useState(0);
