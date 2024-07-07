@@ -1,25 +1,25 @@
 import { PropTypes } from "prop-types";
-import { useState } from "react";
+//import { useState } from "react";
 
 export default function CounterButton({ by, incrementCount, decrementCount }) {
-  function incrementCounterFunction() {
-    setCount(count + by);
-    incrementCount(by);
-  }
+  //   function incrementCounterFunction() {
+  //     //setCount(count + by);
+  //     incrementCount(by);
+  //   }
 
-  function decrementCounterFunction() {
-    setCount(count - by);
-    decrementCount(by);
-  }
+  //   function decrementCounterFunction() {
+  //     //setCount(count - by);
+  //     decrementCount(by);
+  //   }
 
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
   return (
     <div className="Counter">
       <div>
-        <button className="counterButton" onClick={incrementCounterFunction}>
+        <button className="counterButton" onClick={() => incrementCount(by)}>
           +{by}
         </button>
-        <button className="counterButton" onClick={decrementCounterFunction}>
+        <button className="counterButton" onClick={() => decrementCount(by)}>
           -{by}
         </button>
       </div>
