@@ -28,24 +28,6 @@ function LoginComponent() {
     setPassword(event.target.value);
   }
 
-  function SuccessMessageComponent() {
-    if (showSuccessMessage) {
-      return <div className="successMessage">Authenticated Successfully.</div>;
-    }
-    return null;
-  }
-
-  function FailureMessageComponent() {
-    if (showFailureMessage) {
-      return (
-        <div className="failureMessage">
-          Authentication failed. Please check your credentials.
-        </div>
-      );
-    }
-    return null;
-  }
-
   function handleSubmit() {
     if (username === "admin" && password === "pass") {
       setShowSuccessMessage(true);
@@ -58,9 +40,15 @@ function LoginComponent() {
 
   return (
     <div className="Login">
+      {showSuccessMessage && (
+        <div className="successMessage">Authenticated Successfully.</div>
+      )}
+      {showFailureMessage && (
+        <div className="failureMessage">
+          Authentication failed. Please check your credentials.
+        </div>
+      )}
       <div className="LoginForm">
-        <SuccessMessageComponent />
-        <FailureMessageComponent />
         <div>
           <label>User Name</label>
           <input
