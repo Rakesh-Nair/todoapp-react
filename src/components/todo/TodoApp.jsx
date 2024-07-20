@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import "./TodoApp.css";
 
 export default function TodoApp() {
   return (
     <div className="TodoApp">
-      {/* Todo Management Application */}
-      <LoginComponent />
-      {/* <WelcomeComponent /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginComponent />}></Route>
+          <Route path="/login" element={<LoginComponent />}></Route>
+          <Route path="/welcome" element={<WelcomeComponent />}></Route>
+          <Route path="*" element={<ErrorComponent />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
@@ -20,6 +26,8 @@ function LoginComponent() {
 
   const [showFailureMessage, setShowFailureMessage] = useState(false);
 
+  const navigate = useNavigate();
+
   function changeUserName(event) {
     setUsername(event.target.value);
   }
@@ -32,6 +40,7 @@ function LoginComponent() {
     if (username === "admin" && password === "pass") {
       setShowSuccessMessage(true);
       setShowFailureMessage(false);
+      navigate("/welcome");
     } else {
       setShowFailureMessage(true);
       setShowSuccessMessage(false);
@@ -49,6 +58,7 @@ function LoginComponent() {
         </div>
       )}
       <div className="LoginForm">
+        <h1>Time to Login !!</h1>
         <div>
           <label>User Name</label>
           <input
@@ -78,5 +88,19 @@ function LoginComponent() {
 }
 
 function WelcomeComponent() {
-  return <div className="Welcome">Welcome Component</div>;
+  return (
+    <div className="WelcomeComponent">
+      <h1>Welcome Admin</h1>
+      <div>Welcome Component.</div>
+    </div>
+  );
+}
+
+function ErrorComponent() {
+  return (
+    <div className="ErrorComponent">
+      <h1>Oops You are trying to access an Invalid Link</h1>
+      <div>Please reach out to our Support team at ABC-DEF-GHIJ.</div>
+    </div>
+  );
 }
